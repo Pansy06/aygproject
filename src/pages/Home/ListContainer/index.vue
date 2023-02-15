@@ -3,25 +3,13 @@
         <div class="sortList clearfix">
             <div class="center">
                 <!--banner轮播-->
-                <div class="swiper-container" id="mySwiper">
+                <div class="swiper-container" ref="mySwiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="@/images/banner1.jpg" />
+                        <div class="swiper-slide" v-for="item in bannerList" :key="item.id">
+                            <img :src="item.imgUrl" />
                         </div>
-                        <!-- <div class="swiper-slide">
-                                <img src="@/images/banner2.jpg" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="@/images/banner3.jpg" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="@/images/banner4.jpg" />
-                            </div> -->
                     </div>
-                    <!-- 如果需要分页器 -->
                     <div class="swiper-pagination"></div>
-
-                    <!-- 如果需要导航按钮 -->
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>
                 </div>
@@ -29,7 +17,7 @@
             <div class="right">
                 <div class="news">
                     <h4>
-                        <em class="fl">尚品汇快报</em>
+                        <em class="fl">爱艺购快报</em>
                         <span class="fr tip">更多 ></span>
                     </h4>
                     <div class="clearix"></div>
@@ -110,8 +98,39 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+import Swiper from 'swiper';
 export default {
-    name: 'TypeNav'
+    name: 'TypeNav',
+    computed: {
+        ...mapState({
+            bannerList: state => state.home.bannerList
+        })
+
+    },
+    mounted() {
+        this.$store.dispatch('getBannerList')
+    },
+    watch: {
+        bannerList: {
+            handler(newvalue, oldvalue) {
+                this.$nextTick(() => {
+                    var swiper = new Swiper(this.$refs.mySwiper, {
+                        loop: true,
+                        pagination: {
+                            el: '.swiper-pagination',
+                            clickable: true
+                        },
+                        navigation: {
+                            nextE1: ".swiper-button-next",
+                            prevE1: ".swiper-button-prev"
+                        }
+                    })
+                })
+            }
+        }
+    }
+
 
 }
 </script>

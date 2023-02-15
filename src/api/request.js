@@ -2,6 +2,7 @@
 import axios from "axios";
 //引入进度条
 import nprogress from "nprogress";
+import store from '@/store';
 import "nprogress/nprogress.css"
 //request 是封装后的axios实例
 const requests = axios.create({
@@ -13,6 +14,13 @@ const requests = axios.create({
 requests.interceptors.request.use((config)=>{
     //config配置对象，其中header请求头很重要
     nprogress.start()
+    //给请求头添加字段
+    if(store.state.detail.uuid_token){
+        config.headers.userTempId = store.state.detail.uuid_token
+    }
+    if(store.state.user.token){
+        config.headers.token = store.state.user.token
+    }
     return config;
 })
 requests.interceptors.response.use((res)=>{

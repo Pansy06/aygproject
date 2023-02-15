@@ -17,7 +17,7 @@
                     <h4>配送方式</h4>
                     <ul class="footerItemCon">
                         <li>上门自提</li>
-                        <li>211限时达</li>
+                        <li>985限时达</li>
                         <li>配送服务查询</li>
                         <li>配送费收取标准</li>
                         <li>海外配送</li>
@@ -49,8 +49,8 @@
                         <li>夺宝岛</li>
                         <li>DIY装机</li>
                         <li>延保服务</li>
-                        <li>尚品汇E卡</li>
-                        <li>尚品汇通信</li>
+                        <li>爱艺购E卡</li>
+                        <li>爱艺购通信</li>
                     </ul>
                 </div>
                 <div class="footerItem">
@@ -89,8 +89,8 @@
                     </li>
                     <li>关于我们</li>
                 </ul>
-                <p>地址：北京市昌平区宏福科技园综合楼6层</p>
-                <p>京ICP备19006430号</p>
+                <p>地址：浙江省杭州市三墩镇紫金港工地</p>
+                <p>浙CPU备19990601号</p>
             </div>
         </div>
     </div>
